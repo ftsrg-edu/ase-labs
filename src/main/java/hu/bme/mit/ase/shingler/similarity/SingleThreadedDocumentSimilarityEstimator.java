@@ -5,12 +5,12 @@ import hu.bme.mit.ase.shingler.lib.DocumentSimilarityEstimator;
 import hu.bme.mit.ase.shingler.lib.OccurrenceVectorComputor;
 import hu.bme.mit.ase.shingler.lib.Tokenizer;
 import hu.bme.mit.ase.shingler.lib.VectorMultiplier;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SingleThreadedDocumentSimilarityEstimator implements DocumentSimilarityEstimator {
 
-    private static final Logger logger = LogManager.getLogger(SingleThreadedDocumentSimilarityEstimator.class);
+    private static final Logger logger = LoggerFactory.getLogger(SingleThreadedDocumentSimilarityEstimator.class);
 
     private final Tokenizer tokenizer;
     private final OccurrenceVectorComputor occurrenceVectorComputor ;

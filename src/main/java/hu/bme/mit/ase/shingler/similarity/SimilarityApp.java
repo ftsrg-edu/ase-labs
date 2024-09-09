@@ -5,8 +5,8 @@ import hu.bme.mit.ase.shingler.logic.BaseCosineSimilarityComputor;
 import hu.bme.mit.ase.shingler.logic.BaseOccurrenceVectorComputor;
 import hu.bme.mit.ase.shingler.logic.BaseTokenizer;
 import hu.bme.mit.ase.shingler.logic.BaseVectorMultiplier;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
@@ -19,7 +19,7 @@ import java.nio.file.Files;
 @Command(name = "diversity")
 public class SimilarityApp implements Runnable {
 
-    private static final Logger logger = LogManager.getLogger(SimilarityApp.class);
+    private static final Logger logger = LoggerFactory.getLogger(SimilarityApp.class);
 
     @Parameters
     private File file1;

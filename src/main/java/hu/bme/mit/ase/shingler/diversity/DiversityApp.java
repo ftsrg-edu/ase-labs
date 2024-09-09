@@ -2,8 +2,8 @@ package hu.bme.mit.ase.shingler.diversity;
 
 import hu.bme.mit.ase.shingler.logic.BaseDiversityListComputor;
 import hu.bme.mit.ase.shingler.logic.BaseTokenizer;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
@@ -16,7 +16,7 @@ import java.nio.file.Files;
 @Command(name = "diversity")
 public class DiversityApp implements Runnable {
 
-    private static final Logger logger = LogManager.getLogger(DiversityApp.class);
+    private static final Logger logger = LoggerFactory.getLogger(DiversityApp.class);
 
     @Parameters
     private File file;

@@ -5,15 +5,15 @@ import hu.bme.mit.ase.shingler.lib.data.OccurrenceVector;
 import hu.bme.mit.ase.shingler.lib.data.Shingle;
 import hu.bme.mit.ase.shingler.lib.data.TokenVector;
 import hu.bme.mit.ase.shingler.lib.data.TokenizedDocument;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BaseOccurrenceVectorComputor implements OccurrenceVectorComputor {
 
-    private static final Logger logger = LogManager.getLogger(BaseOccurrenceVectorComputor.class);
+    private static final Logger logger = LoggerFactory.getLogger(BaseOccurrenceVectorComputor.class);
 
     @Override
     public OccurrenceVector calculateOccurrenceVector(TokenizedDocument document, int size) {
