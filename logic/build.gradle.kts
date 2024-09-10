@@ -12,5 +12,4 @@ dependencies {
     testImplementation(libs.junit.jupiter.core)
 
     testRuntimeOnly(libs.junit.jupiter.engine)
-    testRuntimeOnly(libs.junit.platform.launcher)
 }
