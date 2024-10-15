@@ -36,7 +36,7 @@ public class SimilarityApp implements Runnable {
     @Option(names = { "-m", "--multithreaded" })
     private boolean isMultiThreaded;
 
-    @Option(names = { "-w", "--workflow" })
+    @Option(names = { "--workflow" })
     private boolean isWorkflow;
 
     @Override
