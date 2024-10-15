@@ -15,6 +15,7 @@ dependencies {
     runtimeOnly(libs.slf4j.logback.impl)
 
     testImplementation(libs.junit.jupiter.core)
+    testImplementation(libs.junit.jupiter.params)
 
     testRuntimeOnly(libs.junit.jupiter.engine)
 }
