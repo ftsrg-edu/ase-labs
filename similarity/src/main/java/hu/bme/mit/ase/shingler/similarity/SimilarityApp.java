@@ -36,6 +36,9 @@ public class SimilarityApp implements Runnable {
     @Option(names = { "-m", "--multithreaded" })
     private boolean isMultiThreaded;
 
+    @Option(names = { "-w", "--workflow" })
+    private boolean isWorkflow;
+
     @Override
     public void run() {
         DocumentSimilarityEstimator similarityEstimator = getDocumentSimilarityEstimator();
@@ -62,7 +65,9 @@ public class SimilarityApp implements Runnable {
     private DocumentSimilarityEstimator getDocumentSimilarityEstimator() {
         DocumentSimilarityEstimator similarityEstimator;
 
-        if (isMultiThreaded) {
+        if (isWorkflow) {
+            similarityEstimator = new WorkflowDocumentSimilarityEstimator();
+        } else if (isMultiThreaded) {
             similarityEstimator = new MultiThreadedDocumentSimilarityEstimator(
                     new BaseTokenizer(),
                     new BaseOccurrenceVectorComputor(),

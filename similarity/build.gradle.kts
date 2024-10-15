@@ -7,7 +7,7 @@ application {
 }
 
 dependencies {
-    implementation(project(":logic"))
+    implementation(project(":workflow"))
 
     implementation(libs.slf4j.api)
     implementation(libs.picocli)
