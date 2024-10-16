@@ -1,17 +1,16 @@
 package hu.bme.mit.ase.shingler.similarity;
 
-import hu.bme.mit.ase.shingler.workflow.impl.CosineSimilarityWorker;
-import hu.bme.mit.ase.shingler.workflow.impl.ShinglerWorker;
-import hu.bme.mit.ase.shingler.workflow.impl.TokenizerWorker;
-import hu.bme.mit.ase.shingler.workflow.impl.VectorMultiplierWorker;
-import hu.bme.mit.ase.shingler.workflow.lib.Channel;
-import hu.bme.mit.ase.shingler.workflow.lib.Pin;
-import hu.bme.mit.ase.shingler.workflow.lib.Workflow;
+import hu.bme.mit.ase.shingler.workflow.impl.*;
+import hu.bme.mit.ase.shingler.workflow.lib.*;
 
 public class SimilarityWorkflow extends Workflow<Double> {
 
+    // Input pin declarations
+
     public final Pin<String> tokenizerAInput = new Pin<>();
     public final Pin<String> tokenizerBInput = new Pin<>();
+
+    // Parameter declarations
 
     private final boolean granularity;
     private final int size;
@@ -23,6 +22,8 @@ public class SimilarityWorkflow extends Workflow<Double> {
 
     @Override
     protected void initialize() {
+        // Worker declarations
+
         var tokenizerA = new TokenizerWorker(granularity);
         var tokenizerB = new TokenizerWorker(granularity);
 
@@ -35,6 +36,8 @@ public class SimilarityWorkflow extends Workflow<Double> {
 
         var cosine = new CosineSimilarityWorker();
 
+        // Adding all workers
+
         addWorker(tokenizerA);
         addWorker(tokenizerB);
         addWorker(shinglerA);
@@ -44,10 +47,16 @@ public class SimilarityWorkflow extends Workflow<Double> {
         addWorker(vectorBB);
         addWorker(cosine);
 
+        // Set output pin
+
         setOutputPin(cosine.outputPin);
+
+        // Input pin channel declarations
 
         var input_ta_input = new Channel<>(tokenizerAInput, tokenizerA.inputPin);
         var input_tb_input = new Channel<>(tokenizerBInput, tokenizerB.inputPin);
+
+        // Channel declarations
 
         var ta_sa = new Channel<>(tokenizerA.outputPin, shinglerA.inputPin);
         var tb_sb = new Channel<>(tokenizerB.outputPin, shinglerB.inputPin);
@@ -64,8 +73,12 @@ public class SimilarityWorkflow extends Workflow<Double> {
         var vab_c_ab = new Channel<>(vectorAB.outputPin, cosine.abPin);
         var vbb_c_bb = new Channel<>(vectorBB.outputPin, cosine.aaPin);
 
+        // Add input pin channels
+
         addChannel(input_ta_input);
         addChannel(input_tb_input);
+
+        // Add channels
 
         addChannel(ta_sa);
         addChannel(tb_sb);
