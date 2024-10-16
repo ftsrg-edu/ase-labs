@@ -10,9 +10,9 @@ public class Pin<T> {
     private final CountDownLatch latch = new CountDownLatch(1);
 
     public T getValue() throws InterruptedException, TimeoutException {
-        var timedOut = !latch.await(100, TimeUnit.MILLISECONDS);
+        var timedOut = !latch.await(200, TimeUnit.MILLISECONDS);
         if (timedOut) {
-            throw new TimeoutException("Timed out after waiting for 100ms!");
+            throw new TimeoutException("Pin read timed out after waiting for 200ms!");
         }
         return value;
     }
