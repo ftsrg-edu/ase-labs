@@ -1,12 +1,22 @@
+import com.github.gradle.node.task.NodeTask
 import com.pswidersk.gradle.python.VenvTask
 
 plugins {
     id("hu.bme.mit.ase.shingler.gradle.application")
     id("com.pswidersk.python-plugin") version "2.7.2"
+    id("com.github.node-gradle.node") version "7.1.0"
 }
 
 application {
     mainClass = "hu.bme.mit.ase.shingler.similarity.SimilarityApp"
+}
+
+val cliOutput by configurations.creating {
+    isCanBeResolved = true
+}
+
+dependencies {
+    cliOutput(project(":workflow-ide", configuration = cliOutput.name))
 }
 
 val srcGenJava = "src/gen/java"
@@ -29,6 +39,26 @@ dependencies {
     testRuntimeOnly(libs.junit.jupiter.engine)
 }
 
+val cloneCliOutput by tasks.registering(Sync::class) {
+    inputs.files(cliOutput)
+
+    from(cliOutput.files)
+    into("build/cli")
+}
+
+val generateDomainModel by tasks.registering(NodeTask::class) {
+    inputs.files(cloneCliOutput.get().outputs)
+    inputs.file("model.wfl")
+    outputs.file("model.json")
+
+    script.set(File("build/cli/main.js"))
+
+    args = listOf(
+        "generate",
+        "model.wfl",
+    )
+}
+
 val installPythonPackages by tasks.registering(VenvTask::class) {
     venvExec = "pip3"
 
@@ -40,6 +70,7 @@ val installPythonPackages by tasks.registering(VenvTask::class) {
 
 val generateSimilarityWorkflow by tasks.registering(VenvTask::class) {
     dependsOn(installPythonPackages)
+    inputs.files(generateDomainModel.get().outputs)
 
     inputs.files(
         "src/main/python/generate.py",
