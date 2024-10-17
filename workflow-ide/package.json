@@ -9,7 +9,7 @@
     ],
     "type": "module",
     "scripts": {
-        "package": "node ./esbuild.js",
+        "package": "npm run build && node ./esbuild.js",
         "build": "npm run langium:generate && tsc -b tsconfig.json",
         "watch": "npm run langium:generate && tsc -b tsconfig.json --watch",
         "lint": "eslint src --ext ts",
