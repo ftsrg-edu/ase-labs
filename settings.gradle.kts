@@ -6,4 +6,5 @@ include(
     "similarity",
     "diversity",
     "workflow",
+    "workflow-ide",
 )

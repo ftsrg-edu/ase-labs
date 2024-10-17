@@ -1,0 +1,33 @@
+workflow Similarity(granularity: boolean, size: int) {
+    in tokenizerA.input
+
+    worker tokenizerA : Tokenizer(granularity)
+    tokenizerA.output -> shinglerA.input
+    worker shinglerA : Shingler(size)
+
+    in tokenizerB.input
+
+    worker tokenizerB : Tokenizer(granularity)
+    tokenizerB.output -> shinglerB.input
+    worker shinglerB : Shingler(size)
+
+    shinglerA.output -> vectorAA.a
+    shinglerA.output -> vectorAA.b
+    shinglerA.output -> vectorAB.a
+
+    shinglerB.output -> vectorAB.b
+    shinglerB.output -> vectorBB.a
+    shinglerB.output -> vectorBB.b
+
+    worker vectorAA : VectorMultiplier
+    worker vectorAB : VectorMultiplier
+    worker vectorBB : VectorMultiplier
+
+    vectorAA.output -> cosine.aa
+    vectorAB.output -> cosine.ab
+    vectorBB.output -> cosine.bb
+
+    worker cosine : CosineSimilarity
+
+    out cosine.output
+}

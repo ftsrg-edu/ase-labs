@@ -1,0 +1,10 @@
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+node_modules/
+out/
+dist/
+src/language/generated/
+syntaxes/
+bin/
