@@ -3,7 +3,7 @@
 
 % Camera  communicatesWith ComputerInstance computerRepository computers ComputerType
 % computerType Controller CPS CPSModel dependsOnSpecificSoftware designs
-% directAlarmConnetion directSensorConnection extraHardware FireAlarm Hardware
+% directAlarmConnection directSensorConnection extraHardware FireAlarm Hardware
 % HeatController installedSoftwares LightController Sensor SmokeDetector SoftwareInstance
 % softwareRepository SoftwareType softwareType Thermometer VideoCard
 
@@ -152,7 +152,7 @@
 
 % % Close world assumption 5.
 % default !directSensorConnection(*,*).
-% default !directAlarmConnetion(*,*).
+% default !directAlarmConnection(*,*).
 % default !communicatesWith(*,*).
 
 % % Instance model 5.
@@ -171,4 +171,4 @@
 %     and the smoke detector.
 % */
 % directSensorConnection(fireAlarm,smokeDetector).
-% directAlarmConnetion(smokeDetector,fireAlarm).
+% directAlarmConnection(smokeDetector,fireAlarm).
