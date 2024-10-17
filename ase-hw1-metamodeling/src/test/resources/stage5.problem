@@ -1,0 +1,24 @@
+% Stage 5.
+
+% Close world assumption 5.
+default !directSensorConnection(*,*).
+default !directAlarmConnection(*,*).
+default !communicatesWith(*,*).
+
+% Instance model 5.
+/**
+    In the network, every computer communicates with the server.
+*/
+communicatesWith(server, cam1Computer).
+communicatesWith(cam1Computer, server).
+communicatesWith(server, cam2Computer).
+communicatesWith(cam2Computer, server).
+communicatesWith(server, temperatureController).
+communicatesWith(temperatureController, server).
+
+/**
+    Additionally, there is a direct link between the alarm
+    and the smoke detector.
+*/
+directSensorConnection(fireAlarm,smokeDetector).
+directAlarmConnection(smokeDetector,fireAlarm).

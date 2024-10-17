@@ -1,0 +1,28 @@
+% % Stage 1.
+
+% % Close world assumption 1.
+% !exists(CPSModel::new).
+% !exists(SoftwareType::new).
+% default !softwareRepository(*,*).
+% default !dependsOnSpecificSoftware(*,*).
+
+% % Instance model 1.
+% CPSModel(model).
+% /**
+%     There are two kinds of Operating Systems in the repository.
+% */
+% softwareRepository(model,raspberryPiOS).
+% softwareRepository(model,fedoraLinux).
+% /**
+%     There are multiple image processing softwares.
+% */
+% softwareRepository(model,yolov8).
+% softwareRepository(model,yolov10).
+% softwareRepository(model,openCV).
+% dependsOnSpecificSoftware(yolov8,fedoraLinux).
+% dependsOnSpecificSoftware(yolov10,fedoraLinux).
+% dependsOnSpecificSoftware(openCV,fedoraLinux).
+% /**
+%     There os a java-based control panel system, that works everywhere.
+% */
+% softwareRepository(model,openHAB).

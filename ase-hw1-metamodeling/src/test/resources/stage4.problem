@@ -1,0 +1,38 @@
+% Stage 4.
+
+% Close world assumption 4.
+!exists(Camera::new).
+!exists(Thermometer::new).
+!exists(SmokeDetector::new).
+!exists(HeatController::new).
+!exists(LightController::new).
+!exists(FireAlarm::new).
+!exists(VideoCard::new).
+
+default !extraHardware(*,*).
+
+% Instance model 4.
+
+extraHardware(server,nvidiaCard).
+VideoCard(nvidiaCard).
+extraHardware(server, fireAlarm).
+FireAlarm(fireAlarm).
+
+extraHardware(cam1Computer,camera1).
+Camera(camera1).
+extraHardware(cam1Computer,light1).
+LightController(light1).
+extraHardware(cam1Computer,thermometer1).
+Thermometer(thermometer1).
+
+extraHardware(cam2Computer,camera2).
+Camera(camera2).
+extraHardware(cam2Computer,light2).
+LightController(light2).
+extraHardware(cam2Computer,thermometer2).
+Thermometer(thermometer2).
+
+extraHardware(temperatureController,heatController).
+HeatController(heatController).
+extraHardware(temperatureController,smokeDetector).
+SmokeDetector(smokeDetector).

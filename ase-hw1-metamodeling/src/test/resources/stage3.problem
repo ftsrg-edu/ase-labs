@@ -1,0 +1,22 @@
+% Stage 3.
+
+% Close world assumption 3.
+!exists(SoftwareInstance::new).
+default !softwareType(*,*).
+default !installedSoftwares(*,*).
+
+% Instance model 3.
+
+installedSoftwares(server,imageProcessing).
+softwareType(imageProcessing,yolov8).
+installedSoftwares(server,serverOS).
+softwareType(serverOS,fedoraLinux).
+
+installedSoftwares(cam1Computer, cam1OS).
+softwareType(cam1OS,raspberryPiOS).
+
+installedSoftwares(cam2Computer, cam2OS).
+softwareType(cam2OS,raspberryPiOS).
+
+installedSoftwares(temperatureController, temperatureOS).
+softwareType(temperatureOS,raspberryPiOS).

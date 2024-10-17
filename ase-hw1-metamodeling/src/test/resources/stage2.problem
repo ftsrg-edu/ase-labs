@@ -1,0 +1,43 @@
+% Stage 2.
+
+% Close world assumption 2.
+!exists(ComputerType::new).
+!exists(ComputerInstance::new).
+default !computerType(*,*).
+
+% Instance model 2.
+/**
+    There are multiple versions of raspberry computers.
+    The PC describes a generic desktop computer; no details are
+    added at the current stage.
+*/
+computerRepository(model,raspberryPi3).
+computerRepository(model,raspberryPi4).
+computerRepository(model,raspberryPi5).
+computerRepository(model,raspberryPi5).
+computerRepository(model,pc).
+
+/**
+    myHome is the CPS system of the intelligent house
+*/
+designs(model,myHome).
+
+/**
+    Everything is controlled by a central pc computer called server.
+*/
+computers(myHome, server).
+computerType(server,pc).
+
+/**
+    There are two computers with cameras and light controllers.
+*/
+computers(myHome, cam1Computer).
+computerType(cam1Computer,raspberryPi5).
+computers(myHome, cam2Computer).
+computerType(cam2Computer,raspberryPi5).
+
+/**
+    There is a temperature controller responsible for heating.
+*/
+computers(myHome, temperatureController).
+computerType(temperatureController,raspberryPi5).
