@@ -3,11 +3,11 @@ package hu.bme.mit.ase.shingler.similarity;
 import hu.bme.mit.ase.shingler.workflow.impl.*;
 import hu.bme.mit.ase.shingler.workflow.lib.*;
 
-public class {{ name }}Workflow extends Workflow<Double> {
+public class {{ name }}Workflow extends Workflow<{{ outPin.type }}> {
 
     // Input pin declarations
     {%- for in_pin in inPins %}
-    public final Pin<String> {{ in_pin.name }} = new Pin<>();
+    public final Pin<{{ in_pin.type }}> {{ in_pin.name }} = new Pin<>();
     {%- endfor %}
 
     // Parameter declarations
