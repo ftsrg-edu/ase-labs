@@ -16,4 +16,6 @@ jobs:
         with:
           node-version: '22'
       - name: Build
-        run: npm run build
+        run: |
+          npm ci
+          npm run build
