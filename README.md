@@ -1,3 +1,1 @@
-# ASE Labs
-
-Practice material for the Automated Software Engineering (VIMIAC20) course.
+This project is for the automated evaluation of the first homework.
