@@ -1,0 +1,35 @@
+{
+    "name": "Homework Two",
+    "description": "Please enter a brief description here",
+    "version": "0.0.1",
+    "files": [
+        "out",
+        "src"
+    ],
+    "type": "module",
+    "scripts": {
+        "build": "npm run assemble && npm run test",
+        "assemble": "npm run langium:generate && tsc -b tsconfig.src.json",
+        "watch": "npm run langium:watch && tsc -b tsconfig.src.json --watch",
+        "lint": "eslint src --ext ts",
+        "langium:generate": "langium generate",
+        "langium:watch": "langium generate --watch",
+        "test": "vitest run"
+    },
+    "dependencies": {
+        "langium": "~3.2.0"
+    },
+    "devDependencies": {
+        "@types/node": "^18.0.0",
+        "@typescript-eslint/parser": "~7.3.1",
+        "@typescript-eslint/eslint-plugin": "~7.3.1",
+        "eslint": "~8.57.0",
+        "langium-cli": "~3.2.0",
+        "typescript": "~5.1.6",
+        "vitest": "~1.4.0"
+    },
+    "volta": {
+        "node": "18.19.1",
+        "npm": "10.2.4"
+    }
+}

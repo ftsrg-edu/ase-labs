@@ -1,0 +1,12 @@
+{
+    "projectName": "Hw2",
+    "languages": [{
+        "id": "hw-2",
+        "grammar": "src/language/hw-2.langium",
+        "fileExtensions": [".hw2"],
+        "textMate": {
+            "out": "syntaxes/hw-2.tmLanguage.json"
+        }
+    }],
+    "out": "src/language/generated"
+}
