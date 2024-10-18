@@ -4,6 +4,11 @@ plugins {
     id("com.github.node-gradle.node") version "7.1.0"
 }
 
+node {
+    download.set(true)
+    version.set("22.0.0")
+}
+
 val cliOutput by configurations.creating {
     isCanBeConsumed = true
 }
