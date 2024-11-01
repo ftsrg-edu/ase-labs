@@ -1,0 +1,31 @@
+{
+  "software_types": [
+    {
+      "name": "MQTTBroker",
+      "description": "Object detection framework version 8"
+    },
+    {
+      "name": "YoloV8",
+      "description": "Object detection framework version 8"
+    },
+    {
+      "name": "OpenCV",
+      "description": "Open-source computer vision library"
+    },
+    {
+      "name": "YoloV10",
+      "description": "Object detection framework version 10 with improved accuracy",
+      "dependencies": [
+        "OpenCV"
+      ]
+    },
+    {
+      "name": "OpenHAB",
+      "description": "Open-source home automation software",
+      "dependencies": [
+        "OpenCV",
+        "MQTTBroker"
+      ]
+    }
+  ]
+}

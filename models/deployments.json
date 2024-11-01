@@ -1,0 +1,155 @@
+{
+  "deployments": [
+    {
+      "name": "HomeSecuritySystem",
+      "computers": [
+        {
+          "name": "camera_node_1",
+          "type": "RaspberryPi4",
+          "software": [
+            "YoloV8",
+            "OpenCV"
+          ],
+          "ip": "192.168.1.10"
+        },
+        {
+          "name": "central_server",
+          "type": "Server",
+          "software": [
+            "OpenHAB",
+            "YoloV10",
+            "OpenCV"
+          ],
+          "ip": "192.168.1.20"
+        }
+      ],
+      "connections": [
+        {
+          "source": "camera_node_1",
+          "target": "central_server"
+        }
+      ]
+    },
+    {
+      "name": "IndustrialAutomation",
+      "computers": [
+        {
+          "name": "control_unit",
+          "type": "PC",
+          "software": [
+            "OpenHAB",
+            "OpenCV"
+          ],
+          "ip": "10.0.0.5"
+        },
+        {
+          "name": "sensor_node_1",
+          "type": "RaspberryPi3",
+          "software": [
+            "YoloV8"
+          ],
+          "ip": "10.0.0.6"
+        },
+        {
+          "name": "sensor_node_2",
+          "type": "RaspberryPi3",
+          "software": [
+            "YoloV8"
+          ],
+          "ip": "10.0.0.7"
+        },
+        {
+          "name": "data_processing_server",
+          "type": "Server",
+          "software": [
+            "YoloV10",
+            "OpenCV"
+          ],
+          "ip": "10.0.0.20"
+        }
+      ],
+      "connections": [
+        {
+          "source": "sensor_node_1",
+          "target": "data_processing_server"
+        },
+        {
+          "source": "sensor_node_2",
+          "target": "data_processing_server"
+        },
+        {
+          "source": "data_processing_server",
+          "target": "control_unit"
+        }
+      ]
+    },
+    {
+      "name": "SmartCityTrafficManagement",
+      "computers": [
+        {
+          "name": "central_hub",
+          "type": "Server",
+          "software": [
+            "OpenHAB",
+            "YoloV10",
+            "OpenCV"
+          ],
+          "ip": "192.168.100.1"
+        },
+        {
+          "name": "traffic_camera_1",
+          "type": "RaspberryPi4",
+          "software": [
+            "YoloV8",
+            "OpenCV"
+          ],
+          "ip": "192.168.100.2"
+        },
+        {
+          "name": "traffic_camera_2",
+          "type": "RaspberryPi4",
+          "software": [
+            "YoloV8",
+            "OpenCV"
+          ],
+          "ip": "192.168.100.3"
+        },
+        {
+          "name": "data_analytics_node",
+          "type": "PC",
+          "software": [
+            "YoloV10",
+            "OpenCV"
+          ],
+          "ip": "192.168.100.4"
+        },
+        {
+          "name": "monitoring_laptop",
+          "type": "Laptop",
+          "software": [
+            "OpenHAB"
+          ],
+          "ip": "192.168.100.5"
+        }
+      ],
+      "connections": [
+        {
+          "source": "traffic_camera_1",
+          "target": "central_hub"
+        },
+        {
+          "source": "traffic_camera_2",
+          "target": "central_hub"
+        },
+        {
+          "source": "central_hub",
+          "target": "data_analytics_node"
+        },
+        {
+          "source": "data_analytics_node",
+          "target": "monitoring_laptop"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "computer_types": [
+    {
+      "name": "RaspberryPi3",
+      "os": "RaspberryPiOS",
+      "description": "Entry-level computer for lightweight tasks",
+      "resources": {
+        "memory": "1GB",
+        "cpu": "4-core ARM Cortex-A53",
+        "storage": "16GB"
+      }
+    },
+    {
+      "name": "RaspberryPi4",
+      "os": "RaspberryPiOS",
+      "description": "Improved model with enhanced performance",
+      "resources": {
+        "memory": "4GB",
+        "cpu": "4-core ARM Cortex-A72",
+        "storage": "32GB"
+      }
+    },
+    {
+      "name": "PC",
+      "os": "UbuntuLinux",
+      "description": "Standard desktop computer for general-purpose use",
+      "resources": {
+        "memory": "16GB",
+        "cpu": "8-core Intel i7",
+        "storage": "512GB"
+      }
+    },
+    {
+      "name": "Laptop",
+      "os": "Windows10",
+      "description": "Portable computer for professional and personal use",
+      "resources": {
+        "memory": "8GB",
+        "cpu": "4-core Intel i5",
+        "storage": "256GB"
+      }
+    },
+    {
+      "name": "Server",
+      "os": "CentOS",
+      "description": "High-performance server for enterprise applications",
+      "resources": {
+        "memory": "64GB",
+        "cpu": "16-core AMD EPYC",
+        "storage": "2TB"
+      }
+    }
+  ]
+}
