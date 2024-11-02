@@ -15,6 +15,8 @@ jobs:
           distribution: adopt
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Set Gradlew executable
+        run: chmod +x ./gradlew
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Check phase 1
