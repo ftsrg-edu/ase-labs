@@ -17,4 +17,12 @@ public abstract class Repository {
 
     public abstract void registerRepository();
 
+    public List<String> getRegisteredSoftwareNames() {
+        return getRegisteredSoftware().stream().map(Software::getName).toList();
+    }
+
+    public Software getSoftwareByName(String name) {
+        return getRegisteredSoftware().stream().filter((software -> software.getName().equals(name))).findFirst().orElse(null);
+    }
+
 }
