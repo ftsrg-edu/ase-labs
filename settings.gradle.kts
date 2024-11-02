@@ -1,27 +1,27 @@
 rootProject.name = "ASE Homework 3"
 
-val homeworkStage: String by settings
-val stage = homeworkStage.toInt()
+val homeworkTask: String by settings
+val task = homeworkTask.toInt()
 
-if (stage >= 1) {
+if (task >= 1) {
     include(
         "computer-types",
     )
 }
 
-if (stage >= 2) {
+if (task >= 2) {
     include(
         "software-types",
     )
 }
 
-if (stage >= 3) {
+if (task >= 3) {
     include(
         "software-repository",
     )
 }
 
-if (stage >= 4) {
+if (task >= 4) {
     include(
         "deployments",
     )

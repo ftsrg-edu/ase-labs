@@ -19,11 +19,13 @@ jobs:
         run: chmod +x ./gradlew
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
+      - name: Generate code
+        run: ./gradlew generate
       - name: Check phase 1
-        run: ./gradlew build -PhomeworkStage=1
+        run: ./gradlew build -PhomeworkTask=1
       - name: Check phase 2
-        run: ./gradlew build -PhomeworkStage=2
+        run: ./gradlew build -PhomeworkTask=2
       - name: Check phase 3
-        run: ./gradlew build -PhomeworkStage=3
+        run: ./gradlew build -PhomeworkTask=3
       - name: Check phase 4
-        run: ./gradlew build -PhomeworkStage=4
+        run: ./gradlew build -PhomeworkTask=4
