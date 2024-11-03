@@ -8,10 +8,9 @@ entry CPSModel :
     
 '}'
 (cpss += CPS)+
- ;
+;
 
-
-CPS: 'cps' name = ID;
+CPS: 'cps' name = ID  '{' '}';
 
 
 terminal DOUBLE returns number: /[0-9]+.[0-9]+/;
