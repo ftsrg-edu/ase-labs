@@ -1,18 +1,24 @@
-grammar Hw2
+grammar SmartHouse
 
-entry Model:
-    (persons+=Person | greetings+=Greeting)*;
+entry CPSModel :
+'repository' '{'
+    
+'}'
+'market' '{'
+    
+'}'
+(cpss += CPS)+
+ ;
 
-Person:
-    'person' name=ID;
 
-Greeting:
-    'Hello' person=[Person:ID] '!';
+CPS: 'cps' name = ID;
+
+
+terminal DOUBLE returns number: /[0-9]+.[0-9]+/;
+terminal INT returns number: /[0-9]+/;
 
 hidden terminal WS: /\s+/;
 terminal ID: /[_a-zA-Z][\w_]*/;
-terminal INT returns number: /[0-9]+/;
-terminal STRING: /"(\\.|[^"\\])*"|'(\\.|[^'\\])*'/;
 
 hidden terminal ML_COMMENT: /\/\*[\s\S]*?\*\//;
 hidden terminal SL_COMMENT: /\/\/[^\n\r]*/;
