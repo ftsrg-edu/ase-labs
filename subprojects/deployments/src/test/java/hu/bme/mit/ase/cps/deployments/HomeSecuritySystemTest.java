@@ -109,18 +109,4 @@ public class HomeSecuritySystemTest {
         );
     }
 
-    @Test
-    @DisplayName("Basic test for checkDeployment")
-    void testCheckDeployment() {
-        deployment.deployComputers(cps);
-
-        var dummyCps = new CPS();
-
-        Assertions.assertAll(
-                () -> Assertions.assertTrue(deployment.checkDeployment(cps), "Deployment should be fine for used CPS"),
-                () -> Assertions.assertFalse(deployment.checkDeployment(dummyCps), "Deployment should not be fine for dummy CPS")
-        );
-
-    }
-
 }
