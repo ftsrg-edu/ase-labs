@@ -6,11 +6,13 @@
     },
     {
       "name": "YoloV8",
-      "description": "Object detection framework version 8"
+      "description": "Object detection framework version 8",
+      "port": 233
     },
     {
       "name": "OpenCV",
-      "description": "Open-source computer vision library"
+      "description": "Open-source computer vision library",
+      "port": 23321
     },
     {
       "name": "YoloV10",
@@ -25,7 +27,8 @@
       "dependencies": [
         "OpenCV",
         "MQTTBroker"
-      ]
+      ],
+      "port": 8008
     }
   ]
 }

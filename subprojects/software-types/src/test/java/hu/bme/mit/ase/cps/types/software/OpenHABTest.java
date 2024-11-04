@@ -29,8 +29,8 @@ public class OpenHABTest {
     @DisplayName("OpenHAB should return correct port")
     void testOpenHABGetPort() {
         var openHAB = new OpenHAB();
-        Assertions.assertEquals(-1, openHAB.getPort(),
-                "Expected OpenHAB's getPort() to return -1 as no port is specified");
+        Assertions.assertEquals(8008, openHAB.getPort(),
+                "Expected OpenHAB's getPort() to return 8008");
     }
 
     @Test

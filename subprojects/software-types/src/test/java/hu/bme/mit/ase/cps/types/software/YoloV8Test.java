@@ -26,8 +26,8 @@ public class YoloV8Test {
     @DisplayName("YoloV8 should return correct port")
     void testYoloV8GetPort() {
         var yoloV8 = new YoloV8();
-        Assertions.assertEquals(-1, yoloV8.getPort(),
-                "Expected YoloV8's getPort() to return -1 as no port is specified");
+        Assertions.assertEquals(233, yoloV8.getPort(),
+                "Expected YoloV8's getPort() to return 233");
     }
 
     @Test

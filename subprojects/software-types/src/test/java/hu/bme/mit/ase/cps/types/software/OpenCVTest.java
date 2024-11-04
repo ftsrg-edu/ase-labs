@@ -26,8 +26,8 @@ public class OpenCVTest {
     @DisplayName("OpenCV should return correct port")
     void testOpenCVGetPort() {
         var openCV = new OpenCV();
-        Assertions.assertEquals(-1, openCV.getPort(),
-                "Expected OpenCV's getPort() to return -1 as no port is specified");
+        Assertions.assertEquals(23321, openCV.getPort(),
+                "Expected OpenCV's getPort() to return 23321");
     }
 
     @Test
