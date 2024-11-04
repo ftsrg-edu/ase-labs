@@ -1,33 +1,19 @@
 import { type Module, inject } from 'langium';
 import { createDefaultModule, createDefaultSharedModule, type DefaultSharedModuleContext, type LangiumServices, type LangiumSharedServices, type PartialLangiumServices } from 'langium/lsp';
-import { Hw2GeneratedModule, Hw2GeneratedSharedModule } from './generated/module.js';
-import { Hw2Validator, registerValidationChecks } from './hw-2-validator.js';
-
-/**
- * Declaration of custom services - add your own service classes here.
- */
-export type Hw2AddedServices = {
-    validation: {
-        Hw2Validator: Hw2Validator
-    }
-}
+import { SmartHouseGeneratedModule, Hw2GeneratedSharedModule } from './generated/module.js';
 
 /**
  * Union of Langium default services and your custom services - use this as constructor parameter
  * of custom service classes.
  */
-export type Hw2Services = LangiumServices & Hw2AddedServices
+export type Hw2Services = LangiumServices
 
 /**
  * Dependency injection module that overrides Langium default services and contributes the
  * declared custom services. The Langium defaults can be partially specified to override only
  * selected services, while the custom services must be fully specified.
  */
-export const Hw2Module: Module<Hw2Services, PartialLangiumServices & Hw2AddedServices> = {
-    validation: {
-        Hw2Validator: () => new Hw2Validator()
-    }
-};
+export const Hw2Module: Module<Hw2Services, PartialLangiumServices> = { };
 
 /**
  * Create the full set of services required by Langium.
@@ -54,11 +40,10 @@ export function createHw2Services(context: DefaultSharedModuleContext): {
     );
     const Hw2 = inject(
         createDefaultModule({ shared }),
-        Hw2GeneratedModule,
+        SmartHouseGeneratedModule,
         Hw2Module
     );
     shared.ServiceRegistry.register(Hw2);
-    registerValidationChecks(Hw2);
     if (!context.connection) {
         // We don't run inside a language server
         // Therefore, initialize the configuration provider instantly
