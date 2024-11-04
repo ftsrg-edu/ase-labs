@@ -5,4 +5,5 @@ include(
     "logic",
     "similarity",
     "diversity",
+    "benchmark",
 )
