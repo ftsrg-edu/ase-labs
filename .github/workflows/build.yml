@@ -19,8 +19,6 @@ jobs:
         run: chmod +x ./gradlew
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-      - name: Generate code
-        run: ./gradlew generate
       - name: Check phase 1
         run: ./gradlew build -PhomeworkTask=1
       - name: Check phase 2
