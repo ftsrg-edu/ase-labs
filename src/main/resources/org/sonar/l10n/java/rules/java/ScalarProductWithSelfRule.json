@@ -1,0 +1,15 @@
+{
+  "title": "Scalar product with self",
+  "type": "Bug",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "5min"
+  },
+  "tags": [
+    "bug",
+    "performance",
+    "vector"
+  ],
+  "defaultSeverity": "Critical"
+}
