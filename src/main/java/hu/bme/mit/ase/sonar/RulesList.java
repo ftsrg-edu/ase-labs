@@ -19,7 +19,7 @@ public final class RulesList {
 
     // Rules that should run on main source files.
     public static List<Class<? extends JavaCheck>> getJavaChecks() {
-        return Collections.emptyList();
+        return Collections.singletonList(ScalarProductWithSelfRule.class);
     }
 
     // Rules that should run on test source files.
