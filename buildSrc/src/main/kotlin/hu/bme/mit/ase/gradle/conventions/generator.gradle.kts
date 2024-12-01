@@ -11,6 +11,10 @@ plugins {
     id("com.pswidersk.python-plugin")
 }
 
+pythonPlugin {
+    useHomeDir = true
+}
+
 val srcGenJava = "src/gen/java"
 
 sourceSets.main {

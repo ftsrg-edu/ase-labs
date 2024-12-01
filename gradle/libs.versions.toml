@@ -4,7 +4,7 @@
 [versions]
 jUnit = "5.10.0"
 mockito = "5.14.2"
-python-gradle-plugin = "2.7.3"
+python-gradle-plugin = "2.8.1"
 
 [libraries]
 junit-jupiter-core = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "jUnit" }
