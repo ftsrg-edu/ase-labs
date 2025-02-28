@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {     
+        "skipLibCheck": true,
+        "allowJs": true,
+        "checkJs": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        //"esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+        //"forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */                       
+        //"skipLibCheck": true
+        "target": "ES2023",
+        "module": "Node16",
+        "lib": [
+            "DOM",
+            "WebWorker"
+        ],
+        "outDir": "./dist",
+        "strict": true,
+        //"noUnusedLocals": true,
+        //"noImplicitReturns": true,
+        //"noImplicitOverride": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": ["**/*.ts", "**/*.js", "**/*.cjs", "**/*.mjs"],
+    "exclude": ["./dist", "web-dist", "./node_modules"]
+}

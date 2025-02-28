@@ -1,0 +1,12 @@
+{
+    "projectName": "DataSpace",
+    "languages": [{
+        "id": "data-space",
+        "grammar": "src/language/data-space.langium",
+        "fileExtensions": [".dataspace"],
+        "textMate": {
+            "out": "syntaxes/data-space.tmLanguage.json"
+        }
+    }],
+    "out": "gen/language/generated"
+}
