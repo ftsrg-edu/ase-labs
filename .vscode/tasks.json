@@ -3,13 +3,13 @@
     "tasks": [
         {            
             "label": "Build",
-            "command": "npm run build",
+            "command": "npm run assemble",
             "type": "shell",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Langium: Generate grammar and build the data-space language",
+            "detail": "Generate grammar and build the data-space LSP",
             "icon": {
                 "color": "terminal.ansiGreen",
                 "id": "server-process"
