@@ -42,14 +42,14 @@ export class DataSpaceValidator {
         }
     }
 
-    validateUniqueSchemasInModel(this: void, model: Model, accept: ValidationAcceptor): void {
-        const schemas = new Set();
+    validateUniqueElementsInModel(this: void, model: Model, accept: ValidationAcceptor): void {
+        const names = new Set();
         model.schemas.forEach(s => {
             if (s.name) {
-                if (schemas.has(s.name)) {
+                if (names.has(s.name)) {
                     accept('error',  `Schema has non-unique name '${s.name}'.`,  {node: s, property: 'name'});
                 }
-                schemas.add(s.name);
+                names.add(s.name);
             }
         });
     }
