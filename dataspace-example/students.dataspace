@@ -1,0 +1,57 @@
+schema StudentData {
+    @PII name: string
+    @PII studentId: string
+    age: number
+}
+schema StudentGrade {
+    @PII studentId: string
+    year: number
+    term: string
+    courseName: string
+    credits: number
+    signature: boolean
+    finalGrade: number
+}
+schema PseudonymizedStudentGrade {
+    id: string
+    year: number
+    term: string
+    courseName: string
+    credits: number
+    signature: boolean
+    finalGrade: number
+}
+schema StudentAggregate {
+    id: string
+    year: number
+    term: string
+    credits: number
+    average: number
+}
+
+stakeholder University {
+    owns dataset students: StudentData
+}
+stakeholder Student {
+    subject of University.students {
+        gives consent to Moodle
+    }
+}
+stakeholder Moodle {
+    provides service calculateGrades: StudentData -> StudentGrade
+}
+stakeholder AnalyticsCompany {
+    provides service calculateAggregate: PseudonymizedStudentGrade -> StudentAggregate
+}
+stakeholder QSWorldUniversity {
+    consumes dataset recordAggregate: StudentAggregate
+}
+
+service chain CollectUniversityRankingData {
+    first University.students
+    then Moodle.calculateGrades
+    then AnalyticsCompany.calculateAggregate {
+        id <- pseudonymize(studentId)
+    }
+    then QSWorldUniversity.recordAggregate
+}

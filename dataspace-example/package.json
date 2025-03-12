@@ -1,0 +1,39 @@
+{
+    "name": "data-space-example",
+    "description": "Please enter a brief description here",
+    "version": "0.0.1",
+    "type": "module",
+    "scripts": {
+        "typecheck": "tsc",
+        "typecheck:watch": "tsc --watch",
+        "lint": "eslint",
+        "check": "npm run typecheck && npm run lint",
+        "dataspace": "node ../dist/cli/main.cjs generate",
+        "assemble": "npm run dataspace && node esbuild.mjs",
+        "assemble:production": "npm run dataspace && node esbuild.mjs --minify",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "npm run check && npm run assemble",
+        "build:production": "npm run check && npm run assemble:production",
+        "servers": "npm run build && concurrently -k \"node dist/server-runner/analytics-company-runner.js\" \"node dist/server-runner/moodle-runner.js\" \"node dist/server-runner/q-s-world-university-runner.js\" \"node dist/server-runner/university-runner.js\"",
+        "servers:production": "npm run build:production && concurrently -k \"node dist/server-runner/analytics-company-runner.js\" \"node dist/server-runner/moodle-runner.js\" \"node dist/server-runner/q-s-world-university-runner.js\" \"node dist/server-runner/university-runner.js\"",
+        "servicechain": "node dist/service-chain/collect-university-ranking-data-runner.js"
+    },
+    "dependencies": {
+        "express": "^5.0.1",
+        "nanoid": "^5.1.3"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.20.0",
+        "@types/express": "^5.0.0",
+        "@types/node": "^20.17.19",
+        "concurrently": "~8.2.1",
+        "esbuild": "^0.25.0",
+        "eslint": "~9.20.1",
+        "globals": "^15.15.0",
+        "typescript": "~5.7.3",
+        "typescript-eslint": "^8.24.1"
+    },
+    "engines": {
+        "node": ">=20.0.0"
+    }
+}

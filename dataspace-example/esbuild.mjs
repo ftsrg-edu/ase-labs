@@ -1,27 +1,20 @@
+//@ts-check
 import * as esbuild from 'esbuild';
 
 const watch = process.argv.includes('--watch');
 const minify = process.argv.includes('--minify');
 
 const ctx = await esbuild.context({
-    external: ['vscode'],
-    // Entry points for the vscode extension and the language server
+    external: ['express'],
     entryPoints: [
-        'src/extension/main.ts', 
-        'src/language/runner/lsp-server.ts', 
-        'src/cli/main.ts'
+        'src/service-chain/*.ts',
+        'src/server-runner/*.ts',
     ],
     outdir: 'dist',
     bundle: true,
     target: "ES2023",
-    format: 'cjs',
-    outExtension: {
-        ".js": ".cjs"
-    },
-    loader: { 
-      '.ts': 'ts',
-      '.txt': 'text',
-    },
+    format: 'esm',
+    loader: { '.ts': 'ts' },
     platform: 'node',
     sourcemap: !minify,
     minify

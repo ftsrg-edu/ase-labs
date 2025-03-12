@@ -1,5 +1,5 @@
 {
-    "compilerOptions": {     
+    "compilerOptions": {
         "skipLibCheck": true,
         "allowJs": true,
         "checkJs": true,
@@ -21,6 +21,14 @@
         //"noImplicitOverride": true,
         "forceConsistentCasingInFileNames": true
     },
-    "include": ["**/*.ts", "**/*.js", "**/*.cjs", "**/*.mjs"],
-    "exclude": ["./dist", "web-dist", "./node_modules", "dataspace-example" ]
+    "include": [
+        "**/*.ts",
+        "**/*.js",
+        "**/*.cjs",
+        "**/*.mjs"
+    ],
+    "exclude": [
+        "./dist",
+        "./node_modules"
+    ]
 }

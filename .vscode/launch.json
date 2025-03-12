@@ -2,6 +2,22 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Run Generator",
+            "type": "node",
+            "request": "launch",
+            "sourceMaps": true,
+            "program": "${workspaceFolder}/dist/cli/main.cjs",
+            "args": [
+                "generate",
+                "--configuration",
+                "dataspace-example/data-space-config.json"
+            ],
+            "outFiles": [
+                "${workspaceFolder}/dist/**/*.cjs"
+            ],
+            "preLaunchTask": "Build"
+        },
+        {
             "name": "Run Extension (without LSP debug)",
             "type": "extensionHost",
             "request": "launch",
