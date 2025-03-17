@@ -6,10 +6,10 @@ const minify = process.argv.includes('--minify');
 
 const ctx = await esbuild.context({
     external: ['express'],
-    entryPoints: [
-        'src/service-chain/*.ts',
-        'src/server-runner/*.ts',
-    ],
+    // entryPoints: [
+    //     'src/service-chain/*.ts',
+    //     'src/server-runner/*.ts',
+    // ],
     outdir: 'dist',
     bundle: true,
     target: "ES2023",
