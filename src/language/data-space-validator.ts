@@ -152,20 +152,15 @@ export class DataSpaceValidator {
 
     validateNoMissingMapping(this: void, mapping: Mapping, accept: ValidationAcceptor) {
         const step = mapping.$container;
-        const currentInput = stepInputSchema(step);
-        const currentInputNames = currentInput?.fields.map(f => f.name).filter(s => s !== undefined) || [];
-        const missingFieldNamesSet = new Set(currentInputNames);
+        const currentInputFields = stepInputSchema(step)?.fields.filter(s => s !== undefined) || [];
+        const missingFieldsSet = new Set(currentInputFields);
 
-        const serviceChain = step.$container;
-        const previousStep = serviceChain.steps.at(step.$containerIndex! - 1)!
-        const previousOutput = stepOutputSchema(previousStep);
-        const previousOutputNames = previousOutput?.fields.map(f => f.name).filter(s => s !== undefined) || [];
-        previousOutputNames.forEach(name => missingFieldNamesSet.delete(name));
+        mapping.valueMappings
+            .map(m => m.left?.ref)
+            .filter(f => f !== undefined)
+            .forEach(name => missingFieldsSet.delete(name));
 
-        const mappingLeftNames = mapping.valueMappings.map(m => m.left?.ref?.name).filter(name => name !== undefined);
-        mappingLeftNames.forEach(name => missingFieldNamesSet.delete(name));
-
-        const missingFieldNames = Array.from(missingFieldNamesSet.values());
+        const missingFieldNames = Array.from(missingFieldsSet.values()).map(f => f.name);
 
         if (missingFieldNames.length > 0) {
             accept(

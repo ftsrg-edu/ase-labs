@@ -4,6 +4,7 @@ schema StudentData {
     age: number
 }
 schema StudentGrade {
+    @PII name: string
     @PII studentId: string
     year: number
     term: string
@@ -27,6 +28,7 @@ schema StudentAggregate {
     term: string
     credits: number
     average: number
+    correctedAverage: number
 }
 
 stakeholder University {
@@ -52,6 +54,12 @@ service chain CollectUniversityRankingData {
     then Moodle.calculateGrades
     then AnalyticsCompany.calculateAggregate {
         id <- pseudonymize(studentId)
+        year <- year
+        term <- term
+        courseName <- courseName
+        credits <- credits
+        signature <- signature
+        finalGrade <- finalGrade
     }
     then QSWorldUniversity.recordAggregate
 }
