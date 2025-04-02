@@ -3,6 +3,7 @@ schema StudentData {
     @PII studentId: string
     age: number
 }
+
 schema StudentGrade {
     @PII name: string
     @PII studentId: string
@@ -13,6 +14,7 @@ schema StudentGrade {
     signature: boolean
     finalGrade: number
 }
+
 schema PseudonymizedStudentGrade {
     id: string
     year: number
@@ -22,6 +24,7 @@ schema PseudonymizedStudentGrade {
     signature: boolean
     finalGrade: number
 }
+
 schema StudentAggregate {
     id: string
     year: number
@@ -34,17 +37,21 @@ schema StudentAggregate {
 stakeholder University {
     owns dataset students: StudentData
 }
+
 stakeholder Student {
     subject of University.students {
         gives consent to Moodle
     }
 }
+
 stakeholder Moodle {
     provides service calculateGrades: StudentData -> StudentGrade
 }
+
 stakeholder AnalyticsCompany {
     provides service calculateAggregate: PseudonymizedStudentGrade -> StudentAggregate
 }
+
 stakeholder QSWorldUniversity {
     consumes dataset recordAggregate: StudentAggregate
 }
