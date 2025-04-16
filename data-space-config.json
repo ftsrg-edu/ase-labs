@@ -1,0 +1,39 @@
+{
+    "modelPath": "students.dataspace",
+    "genPath": "gen",
+    "stubs": {
+        "srcPath": "src",
+        "serverRunnerStubs": {
+            "Moodle": {
+                "defaultPort": 3001
+            },
+            "University": {
+                "defaultPort": 3002
+            },
+            "AnalyticsCompany": {
+                "defaultPort": 3003
+            },
+            "QSWorldUniversity": {
+                "defaultPort": 3004
+            }
+        },
+        "serviceChainStubs": {
+            "CollectUniversityRankingData": {
+                "clients": {
+                    "Moodle": {
+                        "defaultUrl": "http://localhost:3001"
+                    },
+                    "University": {
+                        "defaultUrl": "http://localhost:3002"
+                    },
+                    "AnalyticsCompany": {
+                        "defaultUrl": "http://localhost:3003"
+                    },
+                    "QSWorldUniversity": {
+                        "defaultUrl": "http://localhost:3004"
+                    }
+                }
+            }
+        }
+    }
+}
