@@ -12,7 +12,7 @@
         "compile:production": "node esbuild.mjs --minify",
         "assemble": "npm run compile",
         "assemble:production": "npm run compile:production",
-        "test": "vitest",
+        "test": "vitest run",
         "test:unit": "vitest run --project unit",
         "test:integration": "vitest run --project integration",
         "test:e2e": "vitest run --project e2e",
