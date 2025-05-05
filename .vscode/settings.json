@@ -1,0 +1,10 @@
+{
+    "workbench.tree.indent": 20,
+    "eslint.format.enable": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "mochaExplorer.exit": true,
+    "editor.formatOnSave": true,
+    "solidity.linter": ""
+}
