@@ -1,9 +1,8 @@
 import com.github.gradle.node.task.NodeTask
-import com.pswidersk.gradle.python.VenvTask
+import hu.bme.mit.ase.shingler.gradle.GenerateShinglerFromJinja
 
 plugins {
     id("hu.bme.mit.ase.shingler.gradle.application")
-    id("com.pswidersk.python-plugin") version "2.7.2"
     id("com.github.node-gradle.node") version "7.1.0"
 }
 
@@ -16,12 +15,12 @@ application {
     mainClass = "hu.bme.mit.ase.shingler.similarity.SimilarityApp"
 }
 
-val cliOutput by configurations.creating {
+val langiumCliOutput by configurations.creating {
     isCanBeResolved = true
 }
 
 dependencies {
-    cliOutput(project(":workflow-ide", configuration = cliOutput.name))
+    langiumCliOutput(project(":workflow-ide", configuration = langiumCliOutput.name))
 }
 
 val srcGenJava = "src/gen/java"
@@ -45,9 +44,9 @@ dependencies {
 }
 
 val cloneCliOutput by tasks.registering(Sync::class) {
-    inputs.files(cliOutput)
+    inputs.files(langiumCliOutput)
 
-    from(cliOutput.files)
+    from(langiumCliOutput.files)
     into("build/cli")
 }
 
@@ -64,33 +63,12 @@ val generateDomainModel by tasks.registering(NodeTask::class) {
     )
 }
 
-val installPythonPackages by tasks.registering(VenvTask::class) {
-    venvExec = "pip3"
-
-    args = listOf(
-        "install",
-        "jinja2",
-    )
-}
-
-val generateSimilarityWorkflow by tasks.registering(VenvTask::class) {
-    dependsOn(installPythonPackages)
+val generateSimilarityWorkflow by tasks.registering(GenerateShinglerFromJinja::class) {
     inputs.files(generateDomainModel.get().outputs)
 
-    inputs.files(
-        "src/main/python/generate.py",
-        "src/main/jinja/workflow.java.j2",
-        "model.json",
-    )
-
-    args = listOf(
-        "src/main/python/generate.py",
-        "model.json",
-        "src/main/jinja/workflow.java.j2",
-        "$srcGenJava/hu/bme/mit/ase/shingler/similarity/SimilarityWorkflow.java",
-    )
-
-    outputs.dir(srcGenJava)
+    modelFile.set(File("model.json"))
+    templateFile.set(File("src/main/jinja/workflow.java.j2"))
+    outputFile.set(File("$srcGenJava/hu/bme/mit/ase/shingler/similarity/SimilarityWorkflow.java"))
 }
 
 tasks.compileJava {

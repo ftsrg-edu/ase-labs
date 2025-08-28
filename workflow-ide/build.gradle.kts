@@ -9,7 +9,7 @@ node {
     version.set("22.0.0")
 }
 
-val cliOutput by configurations.creating {
+val langiumCliOutput by configurations.creating {
     isCanBeConsumed = true
 }
 
@@ -35,11 +35,6 @@ val npmBuild by tasks.registering(NpmTask::class) {
     )
 }
 
-//val collectCliOutput by tasks.registering(Sync::class) {
-//    from("dist")
-//    into("build/cli")
-//}
-
 artifacts {
-    add(cliOutput.name, npmBuild)
+    add(langiumCliOutput.name, npmBuild)
 }
