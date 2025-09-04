@@ -4,12 +4,7 @@ plugins {
 
 dependencies {
     api(project(":lib"))
+    api(libs.slf4j.api)
 
-    implementation(libs.slf4j.api)
-
-    runtimeOnly(libs.slf4j.log4j.impl)
-
-    testImplementation(libs.junit.jupiter.core)
-
-    testRuntimeOnly(libs.junit.jupiter.engine)
+    testRuntimeOnly(libs.slf4j.log4j.impl)
 }

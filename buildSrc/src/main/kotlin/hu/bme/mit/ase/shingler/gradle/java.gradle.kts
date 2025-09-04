@@ -1,5 +1,7 @@
 package hu.bme.mit.ase.shingler.gradle
 
+import org.gradle.accessors.dm.LibrariesForLibs
+
 plugins {
     java
     jacoco
@@ -25,4 +27,13 @@ tasks {
     jacocoTestReport {
         inputs.files(test.get().outputs)
     }
+}
+
+val libs = the<LibrariesForLibs>()
+
+dependencies {
+    testImplementation(libs.junit.jupiter.core)
+
+    testRuntimeOnly(libs.junit.jupiter.engine)
+    testRuntimeOnly(libs.junit.platform.launcher)
 }
