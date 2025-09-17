@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2025 Budapest University of Technology and Economics
+#
+# SPDX-License-Identifier: Apache-2.0
+
+name: Check copyright
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  reuse-check:
+    # Each source file is checked if it contains a copyright and its header matches the last git modification year of that file.
+    # To make this workflow pass, add copyright headers to all source files and ensure the year is correct.
+    name: REUSE Compliance Check
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+      - name: REUSE Compliance Check
+        uses: fsfe/reuse-action@v5

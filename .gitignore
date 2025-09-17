@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: 2025 Budapest University of Technology and Economics
+#
+# SPDX-License-Identifier: Apache-2.0
+
+### Java ###
+*.class
+*.log
+*.ctxt
+hs_err_pid*
+replay_pid*
+
+### Build ###
+build/
+out/
+!gradle/wrapper/gradle-wrapper.jar
+
+### Gradle ###
+.gradle/
+.gradle-cache/
+!gradle/wrapper/
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse ###
+.settings/
+.project
+.classpath
+
+### VS Code ###
+.vscode/
+
+### OS ###
+.DS_Store
+Thumbs.db
+desktop.ini
+
+### Temp ###
+*.tmp
+*.swp
+*.swo
+*~
