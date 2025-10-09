@@ -1,2 +1,4 @@
-exams/*.pdf
-materials/*.png
+exams/
+materials/
+*.pdf
+*.png
