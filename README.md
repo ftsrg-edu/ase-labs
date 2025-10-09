@@ -39,5 +39,5 @@ password-checker/
   
   Outputs the strength to the console.
 
-  ![Java CI](https://github.com/<your-username>/ase-labs/actions/workflows/ci.yml/badge.svg?branch=hw1)
+  [![Java CI](https://github.com/Sarangerel1232/ase-labs/actions/workflows/ci.yml/badge.svg)](https://github.com/Sarangerel1232/ase-labs/actions/workflows/ci.yml)
 
