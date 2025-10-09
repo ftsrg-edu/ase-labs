@@ -38,3 +38,6 @@ password-checker/
   - `--loglevel <level>`: Set logging level (DEBUG, INFO, WARN, ERROR).
   
   Outputs the strength to the console.
+
+  ![Java CI](https://github.com/<your-username>/ase-labs/actions/workflows/ci.yml/badge.svg?branch=hw1)
+
