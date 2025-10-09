@@ -1,4 +1,11 @@
-exams/
-materials/
-*.pdf
-*.png
+# Ignore exams PDFs
+exams/*.pdf
+exams/*.md
+
+# Ignore materials images
+materials/*.png
+materials/*.jpg
+materials/*.jpeg
+materials/*.gif
+materials/*.bmp
+materials/readme.md
