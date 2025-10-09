@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Budapest University of Technology and Economics
+// SPDX-License-Identifier: Apache-2.0
+
 plugins {
     `java`
 }
@@ -9,19 +12,18 @@ java {
 }
 
 repositories {
-    mavenCentral() // <--- ADD THIS
+    mavenCentral() 
 }
 
 
 dependencies {
-    // Your existing dependencies (if any)
     
     testImplementation(libs.junit.jupiter.core)
     testRuntimeOnly(libs.junit.jupiter.engine)
     testRuntimeOnly(libs.junit.platform.launcher)
 }
 tasks.test {
-    useJUnitPlatform() // <-- very important for JUnit 5
+    useJUnitPlatform()
     testLogging.showStandardStreams = true
 }
 

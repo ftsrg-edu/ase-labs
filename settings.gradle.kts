@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Budapest University of Technology and Economics
+// SPDX-License-Identifier: Apache-2.0
+
 rootProject.name = "password-checker"
 
 include(
@@ -7,4 +10,3 @@ include(
     "app"
 )
 
-// No versionCatalogs { from(...) } here, we will only use libs.versions.toml once
