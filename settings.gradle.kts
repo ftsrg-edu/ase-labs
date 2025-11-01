@@ -1,4 +1,4 @@
-rootProject.name = "ASE Homework 3"
+rootProject.name = "ASE Homework 4"
 
 val homeworkTask: String by settings
 val task = homeworkTask.toInt()
