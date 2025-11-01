@@ -7,7 +7,7 @@ plugins {
 
 node {
     download.set(true)
-    version.set("22.0.0")
+    version.set("24.0.0")
 }
 
 val npmBuild by tasks.registering(NpmTask::class) {

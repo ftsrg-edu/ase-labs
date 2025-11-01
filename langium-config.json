@@ -1,11 +1,11 @@
 {
-    "projectName": "Hw2",
+    "projectName": "Cps",
     "languages": [{
-        "id": "hw-2",
-        "grammar": "src/language/hw-2.langium",
-        "fileExtensions": [".hw2"],
+        "id": "cps",
+        "grammar": "src/language/cps.langium",
+        "fileExtensions": [".cps"],
         "textMate": {
-            "out": "syntaxes/hw-2.tmLanguage.json"
+            "out": "syntaxes/cps.tmLanguage.json"
         }
     }],
     "out": "src/language/generated"
