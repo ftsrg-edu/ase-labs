@@ -1,14 +1,24 @@
-import com.pswidersk.gradle.python.VenvTask
+import hu.bme.mit.ase.gradle.conventions.GenerateFilesTask
 
 plugins {
-    id("hu.bme.mit.ase.gradle.conventions.generator")
+    id("hu.bme.mit.ase.gradle.conventions.jvm")
 }
 
-val generate by tasks.getting(VenvTask::class) {
-    args = listOf(
-        "build/python-scripts/generate-computer-types.py",
-        "build/models/computer-types.json",
-        "build/jinja-templates/computer-type.java.j2",
-        "src/gen/java/hu/bme/mit/ase/cps/types/computers",
-    )
+sourceSets.main {
+    java.srcDir("src/gen/java")
+}
+
+tasks.clean {
+    delete("src/gen/java")
+}
+
+val generate by tasks.creating(GenerateFilesTask::class) {
+    listKey.set("computer_types")
+    modelFile = rootProject.layout.projectDirectory.dir("models").file("computer-types.json")
+    templateFile = rootProject.layout.projectDirectory.dir("jinja-templates").file("computer-type.java.j2")
+    outputDirectory = project.layout.projectDirectory.dir("src/gen/java/hu/bme/mit/ase/cps/cps/types/computers")
+}
+
+tasks.compileJava {
+    dependsOn(generate)
 }

@@ -1,7 +1,15 @@
-import com.pswidersk.gradle.python.VenvTask
+import hu.bme.mit.ase.gradle.conventions.GenerateFilesTask
 
 plugins {
-    id("hu.bme.mit.ase.gradle.conventions.generator")
+    id("hu.bme.mit.ase.gradle.conventions.jvm")
+}
+
+sourceSets.main {
+    java.srcDir("src/gen/java")
+}
+
+tasks.clean {
+    delete("src/gen/java")
 }
 
 dependencies {
@@ -9,11 +17,13 @@ dependencies {
     implementation(project(":software-repository"))
 }
 
-val generate by tasks.getting(VenvTask::class) {
-    args = listOf(
-        "build/python-scripts/generate-deployments.py",
-        "build/models/deployments.json",
-        "build/jinja-templates/deployment.java.j2",
-        "src/gen/java/hu/bme/mit/ase/cps/deployments",
-    )
+val generate by tasks.creating(GenerateFilesTask::class) {
+    listKey.set("deployments")
+    modelFile = rootProject.layout.projectDirectory.dir("models").file("deployments.json")
+    templateFile = rootProject.layout.projectDirectory.dir("jinja-templates").file("deployment.java.j2")
+    outputDirectory = project.layout.projectDirectory.dir("src/gen/java/hu/bme/mit/ase/cps/cps/deployments")
+}
+
+tasks.compileJava {
+    dependsOn(generate)
 }
