@@ -24,6 +24,7 @@ dependencies {
     }
 
     testRuntimeOnly(libs.junit.jupiter.engine)
+    testRuntimeOnly(libs.junit.platform.launcher)
 }
 
 repositories {
