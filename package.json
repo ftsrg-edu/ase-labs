@@ -17,19 +17,12 @@
         "test": "vitest run"
     },
     "dependencies": {
-        "langium": "~3.2.0"
+        "langium": "~4.1.0"
     },
     "devDependencies": {
-        "@types/node": "^18.0.0",
-        "@typescript-eslint/parser": "~7.3.1",
-        "@typescript-eslint/eslint-plugin": "~7.3.1",
-        "eslint": "~8.57.0",
-        "langium-cli": "~3.2.0",
-        "typescript": "~5.1.6",
-        "vitest": "~1.4.0"
-    },
-    "volta": {
-        "node": "18.19.1",
-        "npm": "10.2.4"
+        "@types/node": "^24.0.0",
+        "langium-cli": "~4.1.0",
+        "typescript": "~5.9.3",
+        "vitest": "^4.0.6"
     }
 }
