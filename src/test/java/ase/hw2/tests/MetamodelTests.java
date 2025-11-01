@@ -1,4 +1,4 @@
-package ase.hw1.tests;
+package ase.hw2.tests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -13,12 +13,12 @@ import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
-import static ase.hw1.tests.RefineryFileTests.*;
+import static ase.hw2.tests.RefineryFileTests.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MetamodelTests {
     private InputStream getResourceAsStream() {
-        return getClass().getClassLoader().getResourceAsStream("hw1.problem");
+        return getClass().getClassLoader().getResourceAsStream("cps.problem");
     }
 
     private String getSolution() {

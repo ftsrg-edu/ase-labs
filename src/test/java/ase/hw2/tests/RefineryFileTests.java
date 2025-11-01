@@ -1,4 +1,4 @@
-package ase.hw1.tests;
+package ase.hw2.tests;
 
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class RefineryFileTests {
     private InputStream getResourceAsStream() {
-        return getClass().getClassLoader().getResourceAsStream("hw1.problem");
+        return getClass().getClassLoader().getResourceAsStream("cps.problem");
     }
 
     static List<String> toLines(InputStream stream) {
@@ -39,7 +39,7 @@ class RefineryFileTests {
 
     @Test
     void problemHasMagicLine() {
-        InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream("hw1.problem");
+        InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream("cps.problem");
         assertNotNull(resourceAsStream);
         int linePosition = linePosition(toLines(resourceAsStream));
         assertNotEquals(-1,linePosition);
@@ -47,7 +47,7 @@ class RefineryFileTests {
 
     @Test
     void solutionNotEmpty() {
-        InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream("hw1.problem");
+        InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream("cps.problem");
         assertNotNull(resourceAsStream);
         List<String> lines = toLines(resourceAsStream);
         int linePosition = linePosition(lines);

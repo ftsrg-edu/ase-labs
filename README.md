@@ -1,1 +1,1 @@
-This project is for the automated evaluation of the first homework.
+This project is for the automated evaluation of the second homework. See https://github.com/ftsrg-edu/ase-labs/wiki/Homework-part-2-%E2%80%90-Graph-Modeling for the exercise description.
