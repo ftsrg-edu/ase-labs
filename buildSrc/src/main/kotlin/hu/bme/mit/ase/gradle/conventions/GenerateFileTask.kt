@@ -27,6 +27,7 @@ abstract class GenerateFileTask : DefaultTask() {
         val templateString = templateFile.get().asFile.readText()
 
         val mapper = ObjectMapper()
+        @Suppress("UNCHECKED_CAST")
         val context = mapper.readValue(modelString, Map::class.java) as Map<String, Any>
         val jinjava = Jinjava()
         val renderedTemplate = jinjava.render(templateString, context)
@@ -59,12 +60,14 @@ abstract class GenerateFilesTask : DefaultTask() {
         val templateString = templateFile.get().asFile.readText()
 
         val mapper = ObjectMapper()
+        @Suppress("UNCHECKED_CAST")
         val context = mapper.readValue(modelString, Map::class.java) as Map<String, Any>
         val jinjava = Jinjava()
 
         outputDirectory.get().asFile.deleteRecursively()
         outputDirectory.get().asFile.mkdirs()
 
+        @Suppress("UNCHECKED_CAST")
         val elements = context[listKey.get()] as Collection<Map<String, Any>>
 
         for (element in elements) {

@@ -17,7 +17,7 @@ dependencies {
     implementation(project(":software-repository"))
 }
 
-val generate by tasks.creating(GenerateFilesTask::class) {
+val generate by tasks.registering(GenerateFilesTask::class) {
     listKey.set("deployments")
     modelFile = rootProject.layout.projectDirectory.dir("models").file("deployments.json")
     templateFile = rootProject.layout.projectDirectory.dir("jinja-templates").file("deployment.java.j2")

@@ -12,7 +12,7 @@ tasks.clean {
     delete("src/gen/java")
 }
 
-val generate by tasks.creating(GenerateFilesTask::class) {
+val generate by tasks.registering(GenerateFilesTask::class) {
     listKey.set("computer_types")
     modelFile = rootProject.layout.projectDirectory.dir("models").file("computer-types.json")
     templateFile = rootProject.layout.projectDirectory.dir("jinja-templates").file("computer-type.java.j2")
