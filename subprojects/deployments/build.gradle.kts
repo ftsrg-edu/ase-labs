@@ -21,7 +21,7 @@ val generate by tasks.registering(GenerateFilesTask::class) {
     listKey.set("deployments")
     modelFile = rootProject.layout.projectDirectory.dir("models").file("deployments.json")
     templateFile = rootProject.layout.projectDirectory.dir("jinja-templates").file("deployment.java.j2")
-    outputDirectory = project.layout.projectDirectory.dir("src/gen/java/hu/bme/mit/ase/cps/cps/deployments")
+    outputDirectory = project.layout.projectDirectory.dir("src/gen/java/hu/bme/mit/ase/cps/deployments")
 }
 
 tasks.compileJava {
