@@ -1,8 +1,11 @@
-import { UserConfig } from 'vite';
 import importMetaUrlPlugin from '@codingame/esbuild-import-meta-url-plugin';
+import { stringPlugin } from 'vite-string-plugin';
+import { defineConfig } from 'vite'
 
-/** @type {import('vite').UserConfig} */
-export default {
+export default defineConfig({
+    plugins: [
+        stringPlugin({match: /\.(dataspace)$/i}),
+    ],
     build: {
         outDir: 'web-dist',
         target: 'es2023',
@@ -11,7 +14,7 @@ export default {
         },
     },
     resolve: {
-        //dedupe: ['vscode']
+        dedupe: ['vscode']
     },
     optimizeDeps: {
         esbuildOptions: {
@@ -20,10 +23,15 @@ export default {
             ]
         },
         include: [
-            //'@testing-library/react',
+            'langium',
+            'langium/lsp',
+            'langium/grammar',
             'vscode/localExtensionHost',
-            'vscode-textmate',
-            //'vscode-oniguruma'
+            'vscode-jsonrpc',
+            'vscode-languageclient',
+            'vscode-languageserver',
+            'vscode-languageserver/browser.js',
+            'vscode-languageserver-protocol'
         ]
     },
     server: {
@@ -32,4 +40,4 @@ export default {
     worker: {
         format: "es"
     },
-} satisfies UserConfig;
+});

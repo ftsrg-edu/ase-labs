@@ -1,6 +1,6 @@
 {
     "name": "data-space-editor",
-    "description": "Please enter a brief description here",
+    "description": "Data space editor with built-in PII usage validation.",
     "version": "0.0.1",
     "type": "module",
     "scripts": {
@@ -27,30 +27,26 @@
         "web:build:preview": "vite preview"
     },
     "dependencies": {
-        "@codingame/monaco-vscode-api": "11.1.2",
-        "@codingame/monaco-vscode-editor-service-override": "11.1.2",
-        "@codingame/monaco-vscode-keybindings-service-override": "11.1.2",
-        "chalk": "~5.3.0",
-        "commander": "~11.0.0",
-        "langium": "~3.3.0",
-        "monaco-editor": "npm:@codingame/monaco-vscode-editor-api@11.1.2",
-        "monaco-editor-wrapper": "6.1.1",
-        "monaco-languageclient": "~9.1.1",
+        "chalk": "~5.6.2",
+        "commander": "~14.0.3",
+        "langium": "~4.2.1",
+        "monaco-languageclient": "~10.7.0",
+        "vite-string-plugin": "^2.0.1",
         "vscode-languageserver": "~9.0.1"
     },
     "devDependencies": {
-        "@codingame/esbuild-import-meta-url-plugin": "~1.0.2",
-        "@eslint/js": "^9.20.0",
-        "@types/node": "^20.17.19",
-        "@types/vscode": "~1.95.0",
-        "concurrently": "~8.2.1",
-        "esbuild": "^0.25.0",
-        "eslint": "~9.20.1",
-        "globals": "^15.15.0",
-        "langium-cli": "~3.3.0",
-        "typescript": "~5.7.3",
-        "typescript-eslint": "^8.24.1",
-        "vite": "6.2.0"
+        "@codingame/esbuild-import-meta-url-plugin": "~1.0.3",
+        "@eslint/js": "~10.0.1",
+        "@types/node": "~25.3.5",
+        "@types/vscode": "~1.109.0",
+        "concurrently": "~9.2.1",
+        "esbuild": "~0.27.3",
+        "eslint": "~10.0.3",
+        "globals": "~17.4.0",
+        "langium-cli": "~4.2.0",
+        "typescript": "~5.9.3",
+        "typescript-eslint": "~8.56.1",
+        "vite": "~7.3.1"
     },
     "displayName": "data-space-editor",
     "engines": {

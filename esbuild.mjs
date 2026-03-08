@@ -6,7 +6,6 @@ const minify = process.argv.includes('--minify');
 
 const ctx = await esbuild.context({
     external: ['vscode'],
-    // Entry points for the vscode extension and the language server
     entryPoints: [
         'src/extension/main.ts', 
         'src/language/runner/lsp-server.ts', 
