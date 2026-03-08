@@ -1,11 +1,12 @@
 html,body {
-    background: rgb(33,33,33);
+    background: rgb(182, 182, 182);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: white;
     margin: 0;
 }
 h1 {
     text-align: center;
+    color: #444;
 }
 footer {
     text-align: center;
@@ -24,5 +25,5 @@ a:visited {
     padding: 0 5%;
 }
 #monaco-editor-root {
-    height: calc(100vh - 7.5rem - 70px);
+    height: calc(100vh - 7.5rem - 150px);
 }
