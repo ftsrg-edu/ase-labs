@@ -5,9 +5,6 @@
         "checkJs": true,
         "declaration": true,
         "emitDeclarationOnly": true,
-        //"esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
-        //"forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */                       
-        //"skipLibCheck": true
         "target": "ES2023",
         "module": "Node16",
         "lib": [
@@ -16,10 +13,31 @@
         ],
         "outDir": "./dist",
         "strict": true,
-        //"noUnusedLocals": true,
-        //"noImplicitReturns": true,
-        //"noImplicitOverride": true,
-        "forceConsistentCasingInFileNames": true
+        "erasableSyntaxOnly": true,
+
+        // Strict Checks
+        "alwaysStrict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "useUnknownInCatchVariables": true,
+        "strictPropertyInitialization": true,
+        "strictFunctionTypes": true,
+        "noImplicitThis": true,
+        "strictBindCallApply": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "exactOptionalPropertyTypes": true,
+        "noImplicitReturns": true,
+        "noImplicitOverride": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "allowUnusedLabels": false,
+        "noImplicitUseStrict": false,
+        "suppressExcessPropertyErrors": false,
+        "suppressImplicitAnyIndexErrors": false,
+        "noStrictGenericChecks": false
     },
     "include": ["**/*.ts", "**/*.js", "**/*.cjs", "**/*.mjs"],
     "exclude": ["./dist", "web-dist", "./node_modules"]
