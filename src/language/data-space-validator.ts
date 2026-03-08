@@ -10,7 +10,7 @@ export function registerValidationChecks(services: DataSpaceServices) {
     const validator = services.validation.DataSpaceValidator;
     const checks: ValidationChecks<DataSpaceAstType> = {
         Model: [
-            validator.validateUniqueSchemasInModel,
+            validator.validateUniqueElementsInModel,
         ],
         Schema: [
             validator.validateCapitalizedSchemas,
