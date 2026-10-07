@@ -1,3 +1,6 @@
+{%- macro pin(worker, name) %}{{ worker }}.{{ name }}Pin{% endmacro %}
+{%- macro inputChannel(in_pin) %}input{{ in_pin.name | capitalize }}{% endmacro %}
+{%- macro declareChannel(name, from, to) %}var {{ name }} = new Channel<>({{ from }}, {{ to }});{% endmacro -%}
 package hu.bme.mit.ase.shingler.similarity;
 
 import hu.bme.mit.ase.shingler.workflow.impl.*;
@@ -25,7 +28,7 @@ public class {{ name }}Workflow extends Workflow<{{ outPin.type }}> {
     protected void initialize() {
         {%- for worker in workers %}
         var {{ worker.name }} = new {{ worker.type }}Worker(
-                {%- if worker.arguments -%}
+                {%- if worker.arguments is defined -%}
                 {%- for argument in worker.arguments -%}
                 {{ argument }}
                 {%- if not loop.last -%}, {% endif -%}
@@ -39,13 +42,13 @@ public class {{ name }}Workflow extends Workflow<{{ outPin.type }}> {
 
         setOutputPin({{ outPin.worker }}.outputPin);
         {% for in_pin in inPins %}
-        var input{{ in_pin.name | capitalize }} = new Channel<>({{ in_pin.name }}, {{ in_pin.worker }}.{{ in_pin.pin }}Pin);
+        {{ declareChannel(inputChannel(in_pin), in_pin.name, pin(in_pin.worker, in_pin.pin)) }}
         {%- endfor %}
         {% for in_pin in inPins %}
-        addChannel(input{{ in_pin.name | capitalize }});
+        addChannel({{ inputChannel(in_pin) }});
         {%- endfor %}
         {% for channel in channels %}
-        var {{ channel.name }} = new Channel<>({{ channel.fromWorker }}.outputPin, {{ channel.toWorker }}.{{ channel.toPin }}Pin);
+        {{ declareChannel(channel.name, pin(channel.fromWorker, 'output'), pin(channel.toWorker, channel.toPin)) }}
         {%- endfor %}
         {% for channel in channels %}
         addChannel({{ channel.name }});
