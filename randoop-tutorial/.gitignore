@@ -1,0 +1,36 @@
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Gradle wrapper
+!gradle/wrapper/gradle-wrapper.jar
+
+# Maven
+log/
+target/
+
+# Inclusions
+!lib/**
+
+*build/
+dist/
+.gradle/
+ui/
+*.orig
+*~
+TAGS
+**/*.aux
+**/*.log
+**/*synctex.gz
+
+catalanoimage/
+randoop.jar
+
+**/ErrorTest*.java
+**/RegressionTest*.java
+
+src/docs/text/randoop-tutorial.out
